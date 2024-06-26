@@ -16,11 +16,11 @@ mkdir -vp /data/.cache \
 echo "Downloading, this might take a while..."
 
 aria2c --allow-overwrite=true --out=/docker/links.txt https://cuckoo.network/api-gateway/sd-models
-cat /docker/links.txt
 aria2c -x 10 --disable-ipv6 --input-file /docker/links.txt --dir /data/models --continue
 
 echo "Checking SHAs..."
 
+aria2c --allow-overwrite=true --out=/docker/checksums.sha256 https://cuckoo.network/api-gateway/sd-models.checksums.sha256
 parallel --will-cite -a /docker/checksums.sha256 "echo -n {} | sha256sum -c"
 
 cat <<EOF
