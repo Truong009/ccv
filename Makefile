@@ -21,3 +21,7 @@ download:
 .PHONY: clean
 clean:
 		docker system prune -a --volumes --force
+
+.PHONY: stop
+stop:
+		docker compose --profile "combined" down
