@@ -56,8 +56,6 @@ services:
       context: ./services/relay-node
       args:
         - ETH_PRIVATE_KEY=${ETH_PRIVATE_KEY}
-    depends_on:
-      - auto-cpu
     environment:
       - ETH_PRIVATE_KEY=${ETH_PRIVATE_KEY}
-      - SD_URL=${SD_URL:-http://auto-cpu:7860}
+      - SD_URL=${SD_URL:-http://auto:7860}

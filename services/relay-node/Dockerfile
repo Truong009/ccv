@@ -27,4 +27,4 @@ RUN go build -tags netgo -ldflags '-s -w' -o app
 ENV NODE_TYPE=MINER
 
 # Define the command to run the application
-CMD ["/usr/local/bin/wait-for-it.sh", "auto-cpu:7860", "--", "./app"]
+CMD ["/usr/local/bin/wait-for-it.sh", "auto:7860", "--", "./app"]
